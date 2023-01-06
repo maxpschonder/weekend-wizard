@@ -31,4 +31,5 @@ lazy val root = project
     ),
     dockerSettings,
     dockerExposedPorts ++= Seq(8080),
+    Compile / packageDoc / publishArtifact := false,
   )
