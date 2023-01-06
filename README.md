@@ -1,4 +1,5 @@
 # Weekend Wizard 🧙
+[![Build and publish](https://github.com/maxpschonder/weekend-wizard/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/maxpschonder/weekend-wizard/actions/workflows/build.yml)
 
 Welcome to Weekend Wizard, a Scala HTTP service for a Kubernetes training with 3 endpoints!
 
@@ -10,7 +11,7 @@ This endpoint returns the current health status of the service. It is used to ch
 
 ### `/fibonacci/<int>`
 
-This endpoint calculates and returns the nth value in the Fibonacci sequence, where `n` is an integer passed as a path parameter. For example, calling `/fibonacci/5` will return the fifth value in the Fibonacci sequence, which is `3`. This endpoint is intended to create CPU load on the system.
+This endpoint calculates and returns the nth value in the Fibonacci sequence, where `n` is an integer passed as a path parameter. For example, calling `/fibonacci/4` will return the fifth value in the Fibonacci sequence, which is `3`. This endpoint is intended to create CPU load on the system.
 
 ### `/weekend-activities`
 
@@ -52,3 +53,5 @@ The service should now be running on http://localhost:8080. You can access the e
 ## Contributing
 
 We welcome contributions to Weekend Wizard! If you have an idea for a new feature or have found a bug, please open an issue on this repository. If you would like to contribute code, please fork the repository and submit a pull request.
+
+<br /><br /><p align="center"><img src="https://hivemindtechnologies.com/_Resources/Static/Packages/Hivemind.Site/Images/logo.svg" width="50%"/></p>
