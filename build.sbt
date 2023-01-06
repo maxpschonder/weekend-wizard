@@ -1,7 +1,7 @@
 import com.typesafe.sbt.packager.docker.Cmd
 
 lazy val dockerSettings = Seq(
-  dockerBaseImage    := "eclipse-temurin:17-jre-alpine",
+  dockerBaseImage    := "azul/zulu-openjdk-alpine:17-jre-headless-latest",
   dockerUpdateLatest := true,
   dockerCommands := dockerCommands.value.flatMap {
     case cmd @ Cmd("FROM", _, "as", "mainstage") =>
