@@ -1,7 +1,7 @@
 # Weekend Wizard 🧙
 [![Build and publish](https://github.com/maxpschonder/weekend-wizard/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/maxpschonder/weekend-wizard/actions/workflows/build.yml)
 
-Welcome to Weekend Wizard, a Scala HTTP service for a Kubernetes training with 3 endpoints!
+Welcome to Weekend Wizard, a Scala HTTP service for a Kubernetes training.
 
 ## Endpoints
 
@@ -9,11 +9,15 @@ Welcome to Weekend Wizard, a Scala HTTP service for a Kubernetes training with 3
 
 This endpoint returns the current health status of the service. It is used to check if the service is running and responding to requests.
 
-### `/fibonacci/<int>`
+### `/fibonacci/:number`
 
-This endpoint calculates and returns the nth value in the Fibonacci sequence, where `n` is an integer passed as a path parameter. For example, calling `/fibonacci/4` will return the fifth value in the Fibonacci sequence, which is `3`. This endpoint is intended to create CPU load on the system.
+This endpoint calculates and returns the nth value in the Fibonacci sequence, where `number` is an integer passed as a path parameter. For example, calling `/fibonacci/4` will return the fifth value in the Fibonacci sequence, which is `3`. This endpoint is intended to create CPU load on the system.
 
-### `/weekend-activities`
+### `/greet`
+
+This endpoint returns a greeting message. It can also be called with `/greet/:name` and `/greet?name=:name`. The name parameter is optional and will be used in the greeting message if provided.
+
+### `/weekend-activity`
 
 This endpoint returns suggestions for activities to do on the weekend.
 

@@ -13,23 +13,22 @@ lazy val dockerSettings = Seq(
   },
 )
 
-val scala3Version = "3.2.1"
-val http4sVersion = "1.0.0-M37"
-
 lazy val root = project
   .in(file("."))
   .enablePlugins(JavaAppPackaging, DockerPlugin, AshScriptPlugin)
   .settings(
     name         := "weekend-wizard",
+    organization := "com.hivemindtechnologies.weekendwizard",
     version      := "0.1.0-SNAPSHOT",
-    scalaVersion := scala3Version,
+    scalaVersion := "3.2.1",
     libraryDependencies ++= Seq(
-      "org.http4s"    %% "http4s-dsl"          % http4sVersion,
-      "org.http4s"    %% "http4s-ember-server" % http4sVersion,
-      "org.http4s"    %% "http4s-ember-client" % http4sVersion,
-      "ch.qos.logback" % "logback-classic"     % "1.3.5",
+      "dev.zio" %% "zio"          % "2.0.5",
+      "io.d11"  %% "zhttp"        % "2.0.0-RC11",
+      "dev.zio" %% "zio-test"     % "2.0.5" % Test,
+      "dev.zio" %% "zio-test-sbt" % "2.0.5" % Test,
     ),
     dockerSettings,
     dockerExposedPorts ++= Seq(8080),
     Compile / packageDoc / publishArtifact := false,
+    testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework"),
   )
