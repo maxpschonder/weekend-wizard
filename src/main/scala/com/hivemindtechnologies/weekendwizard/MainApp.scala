@@ -7,6 +7,7 @@ import com.hivemindtechnologies.weekendwizard.status.StatusApp
 import zhttp.http.Middleware
 import zhttp.service.Server
 import zio.*
+import zio.telemetry.opentelemetry.Tracing
 
 object MainApp extends ZIOAppDefault:
   def run: ZIO[Environment with ZIOAppArgs with Scope, Any, Any] =
@@ -15,3 +16,4 @@ object MainApp extends ZIOAppDefault:
         port = 8080,
         http = (GreetingApp() ++ ActivityApp() ++ FibonacciApp() ++ StatusApp()) @@ LoggingMiddleware.verbose,
       )
+      .provide(Tracing.propagating)

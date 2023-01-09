@@ -24,7 +24,7 @@ object ActivityApp:
 
   def apply(): Http[Any, Nothing, Request, Response] =
     Http.collect[Request] {
-      // GET /greet
+      // GET /weekend-activity
       case Method.GET -> !! / "weekend-activity" =>
         val activity = activities(scala.util.Random.nextInt(activities.length))
         Response.text(activity)
